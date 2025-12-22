@@ -1,0 +1,322 @@
+# .gitignore for Qt C++ Projects with clangd Language Server
+
+#############
+# C++ Files #
+#############
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+#################
+# Qt Build Files #
+#################
+
+# Qt-es
+/.qmake.cache
+/.qmake.stash
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+*.moc
+moc_*.cpp
+moc_*.h
+qrc_*.cpp
+ui_*.h
+*.qmlc
+*.jsc
+Makefile*
+*build-*
+*.autosave
+
+# Qt Core
+*.qm
+.qmake.cache
+.qmake.stash
+
+# Qt plugins
+plugins/
+
+# QtCreator
+*.autosave
+*.user
+*.user.*
+CMakeLists.txt.user*
+.qtc_clangd/
+.clangd/
+
+# QtCtreator Qml
+*.qmlproject.user
+*.qmlproject.user.*
+
+# QtCreator CMake
+CMakeLists.txt.user*
+
+# QtCreator 4.8< compilation database
+compile_commands.json
+
+##################
+# Build Directories #
+##################
+
+build/
+build-*/
+Build/
+BUILD/
+debug/
+release/
+Debug/
+Release/
+bin/
+obj/
+out/
+cmake-build-*/
+.cmake/
+
+#########
+# CMake #
+#########
+
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+cmake_install.cmake
+install_manifest.txt
+CTestTestfile.cmake
+_deps/
+*.cmake
+!CMakeLists.txt
+!*Config.cmake
+!cmake/*.cmake
+
+###########
+# clangd  #
+###########
+
+.clangd/
+.cache/
+compile_commands.json
+.ccls-cache/
+
+###########
+# VS Code #
+###########
+
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+##############
+# CLion/JetBrains #
+##############
+
+.idea/
+cmake-build-*/
+*.iml
+*.iws
+*.ipr
+
+###########
+# Xcode   #
+###########
+
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+*.moved-aside
+DerivedData/
+*.hmap
+*.ipa
+
+##################
+# Visual Studio  #
+##################
+
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vcxproj.filters
+*.vcxproj.user
+*.ncb
+*.sdf
+*.opensdf
+*.suo
+*.pdb
+*.ilk
+*.log
+*.tlog/
+*.lastbuildstate
+*.idb
+*.ipch
+*.aps
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+ipch/
+x64/
+x86/
+[Dd]ebug/
+[Rr]elease/
+
+############
+# QMake    #
+############
+
+*.pro.user*
+*.qmake.stash
+.qmake.cache
+
+############
+# Conan    #
+############
+
+conanfile.txt.user
+conaninfo.txt
+conanbuildinfo.*
+conan.lock
+
+##########
+# Ninja  #
+##########
+
+.ninja_deps
+.ninja_log
+build.ninja
+rules.ninja
+
+#################
+# Documentation #
+#################
+
+html/
+latex/
+docs/html/
+docs/latex/
+Doxyfile.bak
+
+################
+# Test Results #
+################
+
+Testing/
+*.gcov
+*.gcda
+*.gcno
+coverage/
+*.coverage
+
+#########
+# macOS #
+#########
+
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+###########
+# Windows #
+###########
+
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+*.stackdump
+
+#########
+# Linux #
+#########
+
+*~
+.directory
+.fuse_hidden*
+.nfs*
+
+##################
+# Temporary Files #
+##################
+
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+*.bak
+*.old
+*.orig
+
+###############
+# Credentials #
+###############
+
+*.pem
+*.key
+*.p12
+*.keystore
+secrets.json
+.env
+.env.local
+
+##################
+# Package Managers #
+##################
+
+vcpkg_installed/
+packages/
+node_modules/
+
+#################
+# Miscellaneous #
+#################
+
+*.log
+*.tlog
+core
+tags
+TAGS
+cscope.*
+*.diff
+*.patch
