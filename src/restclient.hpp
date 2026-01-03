@@ -6,10 +6,14 @@
 #include <QNetworkAccessManager>
 #include <QObject>
 #include <QRestAccessManager>
+#include <qstringliteral.h>
 #include <qtclasshelpermacros.h>
 #include <qtmetamacros.h>
 #include <qtpreprocessorsupport.h>
 #include <qurl.h>
+#include <QUrlQuery>
+
+#include <tl/expected.hpp>
 
 #include "redminerestclient_global.h"
 namespace redmine {
@@ -27,9 +31,15 @@ class REDMINERESTCLIENT_EXPORT RestClient : public QObject {
 
     bool connect();
     bool connect(const QUrl& baseUrl, const QString& apiKey);
+    [[nodiscard]] bool isConnected() const;
+    void setConnected(bool newConnected);
+    void getIssue(quint32 issueId);
   signals:
     void baseUrlChanged();
     void apiKeyChanged();
+    void connectedChanged();
+    void aboutToConnect();
+    void errorOccurred(const QString& e);
 
   private slots:
     void finished();
@@ -47,9 +57,12 @@ class REDMINERESTCLIENT_EXPORT RestClient : public QObject {
     void sslErrors(QNetworkReply* reply, const QList<QSslError>& errors);
 
   private:
-    QUrl m_BaseUrl;
-    QString m_ApiKey;
-    QRestAccessManager* m_Manager;
+    static constexpr auto g_Authentication = "X-Redmine-API-Key";
+    tl::expected<QNetworkRequest, QString> createRequest(const QString& endpoint, const QUrlQuery& query = QUrlQuery());
+    bool m_connected;
+    QUrl m_baseUrl;
+    QString m_apiKey;
+    QRestAccessManager* m_manager;
 };
 } // namespace redmine
 #endif // RESTCLIENT_HPP

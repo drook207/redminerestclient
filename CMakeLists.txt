@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.24)
 
 project(redminerestclient LANGUAGES CXX)
 
@@ -10,11 +10,14 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Network
 
 qt_standard_project_setup()
 set(TS_FILES redminerestclient_en_US.ts)
-
+include(fetch_tartanllama_expected)
 add_library(redminerestclient SHARED
   src/redminerestclient_global.h
   src/restclient.cpp
   src/restclient.hpp
+  src/apiresources.hpp
+  src/issues/issue.hpp
+  src/issues/issue.cpp
 )
 target_link_libraries(redminerestclient PRIVATE Qt${QT_VERSION_MAJOR}::Core
                       Qt${QT_VERSION_MAJOR}::Network expected)
